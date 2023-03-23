@@ -1,6 +1,6 @@
 const questions = [
-    { question: "Question 1", options: ["A", "B", "C", "D"], correctAnswer: "A" },
-    { question: "Question 2", options: ["A", "B", "C", "D"], correctAnswer: "B" },
+    { question: "Question 1: What is my favorite color?", options: ["A: Red", "B: Gold", "C: Pink", "D: Blue"], correctAnswer: "D: Blue" },
+    { question: "Question 2: What is my favorite number", options: ["A: 89", "B: 9", "C: 1", "D: 32"], correctAnswer: "B" },
     { question: "Question 3", options: ["A", "B", "C", "D"], correctAnswer: "C" },
     { question: "Question 4", options: ["A", "B", "C", "D"], correctAnswer: "A" },
     { question: "Question 5", options: ["A", "B", "C", "D"], correctAnswer: "B" },
