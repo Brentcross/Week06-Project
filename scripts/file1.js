@@ -7,16 +7,15 @@ const nextButton = document.getElementById("next-button");
 let currentQuestionIndex = 0;
 let score = 0;
 
-function fetchQuestions() {
-  return fetch("questions.json")
-    .then((response) => response.json())
-    .then((data) => {
-      questions = shuffleArray(data);
-      displayQuestion();
-    })
-    .catch((error) => {
-      console.error("Error fetching questions:", error);
-    });
+async function fetchQuestions() {
+  try {
+    const response = await fetch("questions.json");
+    const data = await response.json();
+    questions = shuffleArray(data);
+    displayQuestion();
+  } catch (error) {
+    console.error("Error fetching questions:", error);
+  }
 }
 
 function shuffleArray(array) {
