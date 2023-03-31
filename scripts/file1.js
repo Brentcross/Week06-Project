@@ -1,23 +1,31 @@
-const questions = [
-    { question: "Question 1: What is my favorite color?", options: ["A: Red", "B: Gold", "C: Pink", "D: Blue"], correctAnswer: "D: Blue" },
-    { question: "Question 2: What is my favorite number", options: ["A: 89", "B: 9", "C: 1", "D: 32"], correctAnswer: "B" },
-    { question: "Question 3", options: ["A", "B", "C", "D"], correctAnswer: "C" },
-    { question: "Question 4", options: ["A", "B", "C", "D"], correctAnswer: "A" },
-    { question: "Question 5", options: ["A", "B", "C", "D"], correctAnswer: "B" },
-    { question: "Question 6", options: ["A", "B", "C", "D"], correctAnswer: "C" },
-    { question: "Question 7", options: ["A", "B", "C", "D"], correctAnswer: "A" },
-    { question: "Question 8", options: ["A", "B", "C", "D"], correctAnswer: "B" },
-    { question: "Question 9", options: ["A", "B", "C", "D"], correctAnswer: "C" },
-    { question: "Question 10", options: ["A", "B", "C", "D"], correctAnswer: "C" },
-  ];
-  
-  const quizQuestion = document.getElementById("quiz-question");
-  const optionsContainer = document.getElementById("options-container");
-  const correctAnswerDisplay = document.getElementById("correct-answer");
-  const nextButton = document.getElementById("next-button");
-  
-  let currentQuestionIndex = 0;
-  
+let questions = [];
+const quizQuestion = document.getElementById("quiz-question");
+const optionsContainer = document.getElementById("options-container");
+const correctAnswerDisplay = document.getElementById("correct-answer");
+const nextButton = document.getElementById("next-button");
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+function fetchQuestions() {
+  return fetch("questions.json")
+    .then((response) => response.json())
+    .then((data) => {
+      questions = shuffleArray(data);
+      displayQuestion();
+    })
+    .catch((error) => {
+      console.error("Error fetching questions:", error);
+    });
+}
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
   function displayQuestion() {
     quizQuestion.textContent = questions[currentQuestionIndex].question;
     optionsContainer.innerHTML = "";
@@ -39,6 +47,7 @@ const questions = [
   
     if (selectedOption === correctAnswer) {
       correctAnswerDisplay.style.color = "green";
+      score++; // Increment the score if the answer is correct
     } else {
       correctAnswerDisplay.style.color = "red";
     }
@@ -51,13 +60,14 @@ const questions = [
   
     if (currentQuestionIndex < questions.length) {
       displayQuestion();
-   
     } else {
-        alert("Quiz completed!");
-        currentQuestionIndex = 0;
-        displayQuestion();
-      }
-    };
-    
-    displayQuestion();
+      alert(`Quiz completed!\nYour score: ${score}/${questions.length}`);
+      currentQuestionIndex = 0;
+      score = 0; // Reset the score
+      displayQuestion();
+    }
+  };
+  
+  fetchQuestions();
+
     
