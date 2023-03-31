@@ -1,50 +1,57 @@
-[{
-"question": "What is my favorite color?",
-"options": ["A: Red", "B: Gold", "C: Pink", "D: Blue"],
-"correctAnswer": "D: Blue"
-},
-{
-"question": "What is my favorite number?",
-"options": ["A: 89", "B: 9", "C: 1", "D: 32"],
-"correctAnswer": "B: 9"
-},
-{
-"question": "Which of these is a programming language?",
-"options": ["A: Python", "B: Cobra", "C: Elephant", "D: Lion"],
-"correctAnswer": "A: Python"
-},
-{
-"question": "Which planet is closest to the sun?",
-"options": ["A: Venus", "B: Earth", "C: Mercury", "D: Mars"],
-"correctAnswer": "C: Mercury"
-},
-{
-"question": "What is the largest ocean on Earth?",
-"options": ["A: Atlantic", "B: Indian", "C: Arctic", "D: Pacific"],
-"correctAnswer": "D: Pacific"
-},
-{
-"question": "Which country is known as the Land of the Rising Sun?",
-"options": ["A: China", "B: Japan", "C: South Korea", "D: Thailand"],
-"correctAnswer": "B: Japan"
-},
-{
-"question": "What is the chemical symbolfor water?",
-"options": ["A: H2O", "B: CO2", "C: NaCl", "D: O2"],
-"correctAnswer": "A: H2O"
-},
-{
-"question": "Who is the author of the Harry Potter series?",
-"options": ["A: Jane Austen", "B: J.R.R. Tolkien", "C: J.K. Rowling", "D: George R.R. Martin"],
-"correctAnswer": "C: J.K. Rowling"
-},
-{
-"question": "Which element has the atomic number 1?",
-"options": ["A: Helium", "B: Hydrogen", "C: Oxygen", "D: Carbon"],
-"correctAnswer": "B: Hydrogen"
-},
-{
-"question": "Which company created the iPhone?",
-"options": ["A: Microsoft", "B: Google", "C: Apple", "D: Samsung"],
-"correctAnswer": "C: Apple"
-}]
+[
+  {
+    "question": "What is my favorite color?",
+    "options": ["A: Red", "B: Gold", "C: Pink", "D: Blue"],
+    "correctAnswer": "D: Blue"
+  },
+  {
+    "question": "What is my favorite number?",
+    "options": ["A: 89", "B: 9", "C: 1", "D: 32"],
+    "correctAnswer": "B: 9"
+  },
+  {
+    "question": "Which of these is a programming language?",
+    "options": ["A: Python", "B: Cobra", "C: Elephant", "D: Lion"],
+    "correctAnswer": "A: Python"
+  },
+  {
+    "question": "Which planet is closest to the sun?",
+    "options": ["A: Venus", "B: Earth", "C: Mercury", "D: Mars"],
+    "correctAnswer": "C: Mercury"
+  },
+  {
+    "question": "What is the largest ocean on Earth?",
+    "options": ["A: Atlantic", "B: Indian", "C: Arctic", "D: Pacific"],
+    "correctAnswer": "D: Pacific"
+  },
+  {
+    "question": "Which country is known as the Land of the Rising Sun?",
+    "options": ["A: China", "B: Japan", "C: South Korea", "D: Thailand"],
+    "correctAnswer": "B: Japan"
+  },
+  {
+    "question": "What is the chemical symbolfor water?",
+    "options": ["A: H2O", "B: CO2", "C: NaCl", "D: O2"],
+    "correctAnswer": "A: H2O"
+  },
+  {
+    "question": "Who is the author of the Harry Potter series?",
+    "options": [
+      "A: Jane Austen",
+      "B: J.R.R. Tolkien",
+      "C: J.K. Rowling",
+      "D: George R.R. Martin"
+    ],
+    "correctAnswer": "C: J.K. Rowling"
+  },
+  {
+    "question": "Which element has the atomic number 1?",
+    "options": ["A: Helium", "B: Hydrogen", "C: Oxygen", "D: Carbon"],
+    "correctAnswer": "B: Hydrogen"
+  },
+  {
+    "question": "Which company created the iPhone?",
+    "options": ["A: Microsoft", "B: Google", "C: Apple", "D: Samsung"],
+    "correctAnswer": "C: Apple"
+  }
+]

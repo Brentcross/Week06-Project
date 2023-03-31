@@ -25,48 +25,73 @@ function shuffleArray(array) {
   }
   return array;
 }
-  function displayQuestion() {
-    quizQuestion.textContent = questions[currentQuestionIndex].question;
-    optionsContainer.innerHTML = "";
-  
-    questions[currentQuestionIndex].options.forEach((option, index) => {
-      const optionButton = document.createElement("button");
-      optionButton.textContent = option;
-      optionButton.onclick = () => handleOptionClick(option);
-      optionsContainer.appendChild(optionButton);
-    });
-  
-    nextButton.disabled = true;
-    correctAnswerDisplay.textContent = "";
+function displayQuestion() {
+  quizQuestion.textContent = questions[currentQuestionIndex].question;
+  optionsContainer.innerHTML = "";
+
+  questions[currentQuestionIndex].options.forEach((option, index) => {
+    const optionButton = document.createElement("button");
+    optionButton.textContent = option;
+    optionButton.onclick = () => handleOptionClick(option);
+    optionsContainer.appendChild(optionButton);
+  });
+
+  nextButton.disabled = true;
+  correctAnswerDisplay.textContent = "";
+}
+
+function handleOptionClick(selectedOption) {
+  const correctAnswer = questions[currentQuestionIndex].correctAnswer;
+  correctAnswerDisplay.textContent = `Correct answer: ${correctAnswer}`;
+
+  if (selectedOption === correctAnswer) {
+    correctAnswerDisplay.style.color = "green";
+    score++;
+  } else {
+    correctAnswerDisplay.style.color = "red";
   }
-  
-  function handleOptionClick(selectedOption) {
-    const correctAnswer = questions[currentQuestionIndex].correctAnswer;
-    correctAnswerDisplay.textContent = `Correct answer: ${correctAnswer}`;
-  
-    if (selectedOption === correctAnswer) {
-      correctAnswerDisplay.style.color = "green";
-      score++; // Increment the score if the answer is correct
-    } else {
-      correctAnswerDisplay.style.color = "red";
-    }
-  
-    nextButton.disabled = false;
-  }
-  
-  nextButton.onclick = () => {
-    currentQuestionIndex++;
-  
-    if (currentQuestionIndex < questions.length) {
-      displayQuestion();
-    } else {
-      alert(`Quiz completed!\nYour score: ${score}/${questions.length}`);
-      currentQuestionIndex = 0;
-      score = 0; // Reset the score
-      displayQuestion();
-    }
-  };
-  
+
+  nextButton.disabled = false;
+}
+
+const restartButton = document.getElementById("restart-button");
+
+function endQuiz() {
+  const finalScoreDisplay = document.getElementById("final-score");
+  finalScoreDisplay.textContent = `Quiz completed! Your score: ${score}/${questions.length}`;
+
+  quizQuestion.textContent = "";
+  optionsContainer.innerHTML = "";
+  correctAnswerDisplay.textContent = "";
+  nextButton.style.display = "none";
+
+  restartButton.style.display = "block";
+}
+
+function restartQuiz() {
+  currentQuestionIndex = 0;
+  score = 0;
+
   fetchQuestions();
 
-    
+  restartButton.style.display = "none";
+  document.getElementById("final-score").textContent = "";
+
+  nextButton.style.display = "block";
+}
+
+nextButton.onclick = () => {
+  currentQuestionIndex++;
+
+  if (currentQuestionIndex < questions.length) {
+    displayQuestion();
+  } else {
+    endQuiz();
+  }
+};
+
+restartButton.onclick = () => {
+  restartQuiz();
+};
+
+fetchQuestions();
