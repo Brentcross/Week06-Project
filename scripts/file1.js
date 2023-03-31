@@ -58,7 +58,7 @@ const restartButton = document.getElementById("restart-button");
 
 function endQuiz() {
   const finalScoreDisplay = document.getElementById("final-score");
-  finalScoreDisplay.textContent = "Quiz completed! Your score: ${score}/${questions.length}";
+  finalScoreDisplay.textContent = `Quiz completed! Your score: ${score}/${questions.length}`;
 
   quizQuestion.textContent = "";
   optionsContainer.innerHTML = "";
