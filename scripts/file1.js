@@ -32,7 +32,7 @@ function displayQuestion() {
   questions[currentQuestionIndex].options.forEach((option, index) => {
     const optionButton = document.createElement("button");
     optionButton.textContent = option;
-    optionButton.onclick = () => handleOptionClick(option);
+    optionButton.onclick = () => optionClick(option);
     optionsContainer.appendChild(optionButton);
   });
 
@@ -40,7 +40,7 @@ function displayQuestion() {
   correctAnswerDisplay.textContent = "";
 }
 
-function handleOptionClick(selectedOption) {
+function optionClick(selectedOption) {
   const correctAnswer = questions[currentQuestionIndex].correctAnswer;
   correctAnswerDisplay.textContent = `Correct answer: ${correctAnswer}`;
 
@@ -58,7 +58,7 @@ const restartButton = document.getElementById("restart-button");
 
 function endQuiz() {
   const finalScoreDisplay = document.getElementById("final-score");
-  finalScoreDisplay.textContent = `Quiz completed! Your score: ${score}/${questions.length}`;
+  finalScoreDisplay.textContent = "Quiz completed! Your score: ${score}/${questions.length}";
 
   quizQuestion.textContent = "";
   optionsContainer.innerHTML = "";
